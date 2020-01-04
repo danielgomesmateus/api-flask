@@ -32,7 +32,7 @@ class Contacts(Resource):
         contact = Contact.query.get(_id)
 
         if not contact:
-            return {"action": False, "message": "Registro não encontrado!"}
+            return {"action": False, "message": "Registro não encontrado!"}, 404
 
         contact.name = name
         contact.cellphone = cellphone
@@ -49,7 +49,7 @@ class Contacts(Resource):
         contact = Contact.query.get(_id)
 
         if not contact:
-            return {"action": False, "message": "Registro não encontrado!"}
+            return {"action": False, "message": "Registro não encontrado!"}, 404
 
         db.session.delete(contact)
         db.session.commit()
